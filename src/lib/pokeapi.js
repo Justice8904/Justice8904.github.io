@@ -3,3 +3,9 @@ export async function getAllPokes() {
     data = await data.json()
     return data != null ? data.results : alert("Erro!")
 }
+
+export async function getSinglePoke(name) {
+    let data = await fetch('https://pokeapi.co/api/v2/pokemon/'+name)
+    data = await data.json()
+    return data != null ? data.results : alert("Erro!")
+}
