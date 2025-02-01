@@ -3,7 +3,7 @@
 </script>
 <div class="main">
     <div class="titleCard">
-        <h1 >Projeto Pokedex</h1>
+        <div class="title">Projeto Pokedex</div>
     </div>
     <nav class="navbar">
         <div class="navContainer">
@@ -22,12 +22,20 @@
 
 position: relative;
 width: 100%;
-height: 30%;
+height: 15%;
 background-color: #ff2626;
 color: #ffe063;
 align-content: center;
 text-align: center;
 font-family:Verdana, Geneva, Tahoma, sans-serif;
+font-size: xx-large;
+font-weight: 900;
+
+
+}
+.title{
+
+    margin: 0.5%;
 
 }
 
@@ -49,7 +57,7 @@ align-items: center;
 
 font-family: Verdana, Geneva, Tahoma, sans-serif;
 color: white;
-font-size: larger;
+font-size: medium;
 text-decoration: none;
 margin-left: 0.5%;
 padding: 0.5%;

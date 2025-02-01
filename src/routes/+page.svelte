@@ -4,7 +4,7 @@
 <div class="page">
     <div class="search">
         <input type="text" class="searchBox" placeholder="Procure um pokemon aqui">
-        <button class="searchButton"><img class="searchImg" src="/assets/lupa.png" alt="#"></button>
+        <button class="searchButton"><img class="searchImg" src="src/lib/assets/lupa.png" alt="#"></button>
     </div>
 </div>
 <style>
