@@ -1,13 +1,15 @@
 <script>
     import {getSinglePoke} from "$lib/pokeapi.js";
+    import foto from "$lib/assets/Foto.jpg"
+    import justice from "$lib/assets/Justice Foto.jpg"
 </script>
 
 <div class="page">
     <div class="myImgContainer">
-        <img src="src/lib/assets/Foto.jpg" alt="#" class="myImg">
+        <img src={foto} alt="#" class="myImg">
     </div>
     <div class="shinyImgContainer">
-        <img src="src/lib/assets/Justice Foto.jpg" alt="" class="shinyImg"> 
+        <img src={justice} alt="" class="shinyImg"> 
     </div>
     <div class="nameContainer">
         <div class="name">
