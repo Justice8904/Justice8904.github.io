@@ -9,6 +9,10 @@
     </div>
 </div>
 <style>
+    * {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    }
+    
     .page{
 
         width: 100%;
@@ -37,6 +41,7 @@
         border-top-left-radius: 40px;
         border-bottom-left-radius: 40px;
         font-size: 24px;
+        padding-left: 1%;
         
     }
     .searchButton{

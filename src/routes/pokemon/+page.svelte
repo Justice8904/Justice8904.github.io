@@ -1,17 +1,29 @@
 <script>
-    import {getSinglePoke} from "$lib/pokeapi.js";
-    import foto from "$lib/assets/Foto.jpg"
-    import justice from "$lib/assets/Justice Foto.jpg"
+    import { goto } from '$app/navigation';
+	import { browser } from '$app/environment';
+    let data = $state({})
+
+    function getData(){
+        if(browser){
+            let info = localStorage.getItem("pokeSelected")
+            if(info == null){
+                goto("/")       
+            }
+            data = JSON.parse(info)
+        }
+    }
+    getData()
+    
 </script>
 
 <div class="page">
 
     <div class="myImgContainer">
-        <img src={foto} alt="#" class="myImg">
+        <img src={data.sprites.front_default} alt="#" class="myImg">
     </div>
 
     <div class="shinyImgContainer">
-        <img src={justice} alt="" class="shinyImg"> 
+        <img src={data.sprites.front_shiny} alt="" class="shinyImg"> 
     </div>
 
 
@@ -107,6 +119,14 @@
                     Sistema de RPG Sons of the Sun: Dimensions
                 </li>
             </ul>
+        </div>
+    </div>
+    <div class="weaknessContainer containerStyle">
+        <div class="sessionTitle">
+            Meus times Pokemon
+        </div>
+        <div class="sessionDesc">
+            
         </div>
     </div>
 </div>

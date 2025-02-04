@@ -16,7 +16,9 @@
 
 <style>
 
-
+* {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
 
 .titleCard{
 
@@ -27,7 +29,6 @@ background-color: #ff2626;
 color: #ffe063;
 align-content: center;
 text-align: center;
-font-family:Verdana, Geneva, Tahoma, sans-serif;
 font-size: xx-large;
 font-weight: 900;
 
@@ -55,7 +56,6 @@ align-items: center;
 }
 .navbtn{
 
-font-family: Verdana, Geneva, Tahoma, sans-serif;
 color: white;
 font-size: medium;
 text-decoration: none;
