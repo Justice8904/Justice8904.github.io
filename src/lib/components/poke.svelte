@@ -6,7 +6,7 @@
     <div class="pokeContainer" onclick={() => {
         localStorage.setItem("pokeSelected", JSON.stringify(data))
         goto("/pokemon")
-    }}> 
+    }} > 
         <div class="pokeImgContainer">
             <img src={img} alt="#" class="pokeImg">
         </div>

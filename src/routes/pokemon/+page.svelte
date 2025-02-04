@@ -1,7 +1,7 @@
 <script>
     import { goto } from '$app/navigation';
 	import { browser } from '$app/environment';
-    let data = $state({})
+    let data = $state(null)
 
     function getData(){
         if(browser){
@@ -16,6 +16,7 @@
     
 </script>
 
+{#if data != null}
 <div class="page">
 
     <div class="myImgContainer">
@@ -130,6 +131,7 @@
         </div>
     </div>
 </div>
+{/if}
 
 <style>
 * {
