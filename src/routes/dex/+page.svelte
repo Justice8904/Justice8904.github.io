@@ -20,7 +20,7 @@
 
 <div class="dex">
     {#each pokemons as pokemon}
-        <Poke name={pokemon.name} number={pokemon.id} img={pokemon.sprites.front_default} type1={pokemon.types.length > 0 ? pokemon.types[0].type.name : ""} type2={pokemon.types.length > 1 ? pokemon.types[1].type.name : ""} data={pokemon}/>
+            <Poke name={pokemon.name} number={pokemon.id} img={pokemon.sprites.front_default} type1={pokemon.types.length > 0 ? pokemon.types[0].type.name : ""} type2={pokemon.types.length > 1 ? pokemon.types[1].type.name : ""} data={pokemon}/>
     {/each}
 </div>
 
@@ -34,5 +34,6 @@
         display: flex;
         flex-wrap: wrap;
     }
+    
 
 </style>

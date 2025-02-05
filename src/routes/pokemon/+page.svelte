@@ -31,13 +31,13 @@
     <div class="nameContainer containerStyle">
 
         <div class="sessionTitle">
-            João Bortolucci Cavassini
+            {data.name}
         </div>
 
         <div class="typeContainer">
 
             <div class="type1">
-                Mestre de RPG   
+                {data.types}   
             </div>
 
             <div class="type2">

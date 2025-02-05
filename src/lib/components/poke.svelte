@@ -12,10 +12,7 @@
         </div>
         <div class="infoContainer">
             <div class="pokeNameContainer">
-                <p>{name}</p>
-            </div>
-            <div class="pokeNumberContainer">
-                <p>{number}</p>
+                <p>{name} #{number}</p>
             </div>
             <div class="pokeTypeContainer">
                 <p>{type1}/{type2}</p>
@@ -31,10 +28,12 @@
         background-color: lightgray;
         border: 2px solid crimson;
         border-radius: 6px;
-        width: 20%;
+        width: 25%;
         height: 10%;
-        display: flex;
-        flex: 1;
+        display:flex;
+        margin: 2%;
+        transform: translateX(30%);
+        text-transform: capitalize;
     }
     .pokeImg{
         width: 100%;
@@ -47,29 +46,28 @@
         width: 30%;
         height: 30%;
         left: 3%;
-        margin-top: 7%;
-        
+        margin: 3%;
     }
     .pokeNameContainer{
         width: 100%;
-        font-size: 10px;
+        font-size: 16px;
         background-color: darkgray;
         border: 1px solid;
         position: relative;
+        top: 10%;
         border-radius: 6px;
-        font-size: 14px;
         line-height: 2px;
-    }
-    .pokeNumberContainer{
-        background-color: darkgray;
-        border: 1px solid;
-        position: relative;
-        border-radius: 6px;
-        width: 10%;
+
     }
     .pokeTypeContainer{
-        width: 10%;
-        height: 10%;
+        background-color: darkgray;
+        border-radius: 6px;
+        width: 100%;
+        height: 30%;
+        position: relative;
+        top: 15%;
+        border: 1px solid black;
+        text-align: center;
     }
     .infoContainer{
         position: relative;
