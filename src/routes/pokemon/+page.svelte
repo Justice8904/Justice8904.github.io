@@ -1,7 +1,10 @@
 <script>
     import { goto } from '$app/navigation';
 	import { browser } from '$app/environment';
+    import sound from '$lib/assets/Sound.png'
     let data = $state(null)
+    let dataSpecies = $state(null)
+    let cry = $state(null)
 
     function getData(){
         if(browser){
@@ -10,9 +13,12 @@
                 goto("/")       
             }
             data = JSON.parse(info)
+            cry = new Audio(data.cries.latest) 
         }
-    }
+        
+    } 
     getData()
+    console.log(data)
     
 </script>
 
@@ -26,8 +32,7 @@
     <div class="shinyImgContainer">
         <img src={data.sprites.front_shiny} alt="" class="shinyImg"> 
     </div>
-
-
+    
     <div class="nameContainer containerStyle">
 
         <div class="sessionTitle">
@@ -37,11 +42,11 @@
         <div class="typeContainer">
 
             <div class="type1">
-                {data.types}   
+                <p>{data.types.length > 0 ? data.types[0].type.name : ""}</p>
             </div>
 
             <div class="type2">
-                Estudante do IF
+                <p>{data.types.length > 0 ? data.types[1].type.name : ""}</p>
             </div>
 
         </div>
@@ -51,26 +56,10 @@
 
     <div class="abilityContainer containerStyle">
         <div class="sessionTitle">
-            Top 5 Pokemons 
+            {data.abilities[0].ability.name}
         </div>
         <div class="sessionDesc">
-            <ol>
-                <li>
-                    Kyogre
-                </li>
-                <li>
-                    Flygon
-                </li>
-                <li>
-                    Swampert
-                </li>
-                <li>
-                    Mamoswine
-                </li>
-                <li>
-                    Electvire
-                </li>
-            </ol>
+            
         </div>
     </div>
     <div class="entryContainer containerStyle">
@@ -131,11 +120,24 @@
         </div>
     </div>
 </div>
+
+<div class="cryContainer">
+    <button class="cryActivator" onclick={() => cry.play()} aria-label="plays cry sound"><img src={sound} alt="#" class="cryImg"></button>
+</div>
+
+
 {/if}
+
+
 
 <style>
 * {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+p{
+
+    transform: translateY(-60%);
+
 }
 
 .containerStyle {
@@ -143,7 +145,8 @@
     text-align: center;
     background-color: lightgrey;
     border: 5px solid crimson;
-    padding: 0.5%;
+    padding: 1%;
+    margin-top: 1%;
 }
 
 .myImgContainer{
@@ -154,7 +157,7 @@
     left: 10%;
     top: 17%;
     border: 15px solid lightblue;
-
+    background-color: var(--theme);
 }
 .myImg{
 
@@ -163,6 +166,29 @@
     border: none;
     border-radius: 200px;
 }
+.cryContainer{
+
+    width: 5%;
+    height: 5%;
+    position: absolute;
+    left: 16%;
+    top: 63%;
+
+}
+.cryActivator{
+
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 40px;
+    background-color: #9CFFFF;
+
+}
+.cryImg{
+
+    width: 100%;
+
+}
 .nameContainer{
 
     position: absolute;
@@ -170,7 +196,6 @@
     left: 35%;
     width: 35%;
     height: 10%;
-    
 
 }
 
@@ -179,10 +204,12 @@
 
     display: inline-flex;
     flex: 1;
-    margin-top: 0.5%;
+    margin-top: 2%;
     position: relative;
     width: 100%;
     height: 40%;
+    text-transform:uppercase;
+
 }
 .type1{
     width: 50%;
@@ -215,6 +242,7 @@
     position: relative;
     right: 0.5%;
     bottom: 2%;
+    text-transform: capitalize;
 
 }
 .sessionDesc{

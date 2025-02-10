@@ -15,7 +15,7 @@
                 <p>{name} #{number}</p>
             </div>
             <div class="pokeTypeContainer">
-                <p>{type1}/{type2}</p>
+                <p>{type1}/{(type2 == "" ? type1 : type2)}</p>
             </div>
         </div>
     </div>
@@ -23,6 +23,12 @@
 <style>
     *{
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    }
+    p{
+
+        position: relative;
+        top: -25%;
+
     }
     .pokeContainer{
         background-color: lightgray;

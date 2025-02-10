@@ -1,12 +1,14 @@
 <script>
     import Poke from "$lib/components/poke.svelte"
-    import { getAllPokes } from "$lib/pokeapi"
+    import { getAllPokes, getAllSpecies } from "$lib/pokeapi"
     import { onMount } from 'svelte';
 
     let pokemons = $state([])
+    let species = $state([])
 
     onMount(async () => {
         let allPokes = await getAllPokes()
+        let allSpecies = await getAllSpecies()
 
     for(let i = 0; i < allPokes.length; i++){
         let request = await fetch(allPokes[i].url)
@@ -14,14 +16,18 @@
         pokemons.push(data)
     }
 
+    for(let i = 0; i < allSpecies.length; i++){
+        let request = await fetch(allSpecies[i].url)
+        let dataSpecies = await request.json()
+        species.push(dataSpecies)
+    }
     });
-
 </script>
 
 <div class="dex">
     {#each pokemons as pokemon}
-            <Poke name={pokemon.name} number={pokemon.id} img={pokemon.sprites.front_default} type1={pokemon.types.length > 0 ? pokemon.types[0].type.name : ""} type2={pokemon.types.length > 1 ? pokemon.types[1].type.name : ""} data={pokemon}/>
-    {/each}
+            <Poke name={pokemon.name} number={pokemon.id} img={pokemon.sprites.front_default} type1={pokemon.types.length > 0 ? pokemon.types[0].type.name : ""} type2={pokemon.types.length > 1 ? pokemon.types[1].type.name : ""} data={pokemon}/>            
+    {/each}            
 </div>
 
 <style>
@@ -34,6 +40,4 @@
         display: flex;
         flex-wrap: wrap;
     }
-    
-
 </style>
