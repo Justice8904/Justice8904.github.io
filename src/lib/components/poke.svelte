@@ -1,23 +1,25 @@
 <script>
-    const {img, name, number, type1, type2, data} = $props()
+    const {img, name, number, type1, type2, data } = $props()
     import { goto } from '$app/navigation';
 </script>
 
-    <div class="pokeContainer" onclick={() => {
-        localStorage.setItem("pokeSelected", JSON.stringify(data))
-        goto("/pokemon")
-    }} > 
-        <div class="pokeImgContainer">
-            <img src={img} alt="#" class="pokeImg">
-        </div>
-        <div class="infoContainer">
-            <div class="pokeNameContainer">
-                <p>{name} #{number}</p>
+    <div class="pokeContainer">
+        <button class="pokeButton" onclick={() => {
+            localStorage.setItem("pokeSelected", JSON.stringify(data))
+            goto("/pokemon")
+        }} >
+            <div class="pokeImgContainer">
+                <img src={img} alt="#" class="pokeImg">
             </div>
-            <div class="pokeTypeContainer">
-                <p>{type1}/{(type2 == "" ? type1 : type2)}</p>
+            <div class="infoContainer">
+                <div class="pokeNameContainer">
+                    <p>{name} #{number}</p>
+                </div>
+                <div class="pokeTypeContainer">
+                    <p>{type1}/{(type2 == "" ? type1 : type2)}</p>
+                </div>
             </div>
-        </div>
+        </button> 
     </div>
 
 <style>
@@ -39,7 +41,11 @@
         display:flex;
         margin: 2%;
         transform: translateX(30%);
-        text-transform: capitalize;
+    }
+    .pokeButton{
+        width: 100%;
+        height: 100%;
+        display: flex;
     }
     .pokeImg{
         width: 100%;
@@ -78,8 +84,9 @@
     .infoContainer{
         position: relative;
         left: 10%;
-        margin-top: 3%;
+        margin-top: 5%;
         width: 50%;
         text-align: center;
+        text-transform: capitalize;
     }
 </style>

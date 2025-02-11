@@ -1,11 +1,21 @@
 <script>
-    import {getAllPokes} from "$lib/pokeapi.js";
+    import {getAllPokes, getSinglePoke} from "$lib/pokeapi.js";
     import	Lupa from "$lib/assets/lupa.png"
+    import { goto } from  '$app/navigation';
+    let search = $state("")
+    async function searchPoke() {
+        let data = await getSinglePoke(search)
+        let species = await fetch(data.species.url)
+        species = await species.json()
+        data.species = species
+        localStorage.setItem("pokeSelected", JSON.stringify(data))
+        goto("/pokemon")
+    }
 </script>
 <div class="page">
     <div class="search">
-        <input type="text" class="searchBox" placeholder="Procure um pokemon aqui">
-        <button class="searchButton"><img class="searchImg" src={Lupa} alt="#"></button>
+        <input type="text" class="searchBox" placeholder="Procure um pokemon aqui" bind:value={search}>
+        <button class="searchButton" onclick={async () => await searchPoke()}><img class="searchImg" src={Lupa} alt="#"></button>
     </div>
 </div>
 <style>
